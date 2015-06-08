@@ -29,4 +29,13 @@ class OldMiddleware {
 		return $response;
 	}
 
+	/**
+	 * レスポンスを送った後の終了前処理 リクエスト・レスポンスの両オブジェクトを受け取る
+	 * @param $request
+	 * @param $response
+	 */
+	public function terminate($request, $response) {
+
+	}
+
 }
