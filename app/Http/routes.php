@@ -58,5 +58,16 @@ Route::group(['prefix' => 'accounts/{account_id}'], function() {
 	});
 });
 
+Route::get('home', function() {
+	return 'ここはHomeです';
+});
+
+Route::group(['prefix' => 'old'], function() {
+	Route::get('form', 'OldController@form');
+	Route::post('/', ['middleware' => 'old', function() {
+		return '年齢のチェックをパスしました';
+	}]);
+});
+
 Route::get('sample/index', 'SampleController@index');
 Route::get('sample/csrf', 'SampleController@csrf');
