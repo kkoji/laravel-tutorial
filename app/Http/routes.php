@@ -31,7 +31,7 @@ Route::get('name/{name}', function($name)
 	->where('name', '[A-Za-z]+');
 
 // 複数のパラメータを正規表現でチェック
-Route::get('user/{id}/{name}', function($id, $name)
+Route::get('product/{id}/{name}', function($id, $name)
 {
 	return "id:{$id} name:{$name}";
 })
@@ -43,7 +43,7 @@ Route::get('route/name', ['as' => 'profile', function() {
 }]);
 
 // ルートのプレフィックスでグルーピング
-Route::group(['prefix' => 'user'], function() {
+Route::group(['prefix' => 'product'], function() {
 	// パラメータ付きルート user/{id}
 	Route::get('{id}', function($id) {
 		return $id;
@@ -71,3 +71,18 @@ Route::group(['prefix' => 'old'], function() {
 
 Route::get('sample/index', 'SampleController@index');
 Route::get('sample/csrf', 'SampleController@csrf');
+
+// UserControllerの全アクションへのルートを作成
+Route::controller('user', 'UserController');
+
+// Rest Route
+Route::resource('photo', 'PhotoController');
+
+
+// 特定のルートのみ作成
+// Route::resource('photo', 'PhotoController',
+// 	['only' => ['index', 'show']]);
+
+// 特定のルートを除外
+// Route::resource('photo', 'PhotoController',
+// 	['except' => ['create', 'store', 'update', 'destroy']]);
