@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.scss"],"names":[],"mappings":"AAAA;EACE,qBAAoB;EACpB,mBAAkB;EAClB,gBAAe;EACf,kBAAiB,EAJb","file":"app.css","sourcesContent":["body {\n  font-family: 'Lato';\n  padding-top: 80px;\n  color: #B0BEC5;\n  font-weight: 100;\n}\n"],"sourceRoot":"/source/"}

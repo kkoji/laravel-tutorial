@@ -12,5 +12,8 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+    mix.sass(['**/*.scss'])
+        .stylesIn('public/css')  // cssを1つにまとめる
+        .version('css/all.css'); // all.cssにバージョンを付ける
+
 });
