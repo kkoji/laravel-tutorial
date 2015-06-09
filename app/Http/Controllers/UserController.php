@@ -61,6 +61,7 @@ class UserController extends Controller {
 	 */
 	public function show(User $user)
 	{
+		dd(Request::input('id'));
 		return view('user.show', compact('user'));
 	}
 
@@ -84,7 +85,7 @@ class UserController extends Controller {
 	 */
 	public function update(User $user, Request $request)
 	{
-		$input = array_except($request->all(), ['_method', '_token']);
+		$input = $request->except(['_method', '_token']);
 		$user->update($input);
 
 		return redirect('user');
