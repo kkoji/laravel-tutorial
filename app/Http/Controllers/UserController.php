@@ -31,6 +31,16 @@ class UserController extends Controller {
 		return view('user.index', ['users' => User::all()]);
 	}
 
+
+	/**
+	 * ユーザー新規作成フォーム
+	 *
+	 */
+	public function create()
+	{
+		return view('user.create');
+	}
+
 	/**
 	 * 指定されたユーザーのプロファイルを表示
 	 * @param $id
@@ -59,23 +69,15 @@ class UserController extends Controller {
 	}
 
 	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
+	 * ユーザー作成処理
+	 * @param Request $request
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
 	 */
-	public function create()
+	public function store(Request $request)
 	{
-		//
-	}
+		User::create($request->all());
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
+		return redirect('user');
 	}
 
 	/**
