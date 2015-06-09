@@ -1,12 +1,10 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use App\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\Route;
 
 class UserController extends Controller {
 
@@ -43,10 +41,11 @@ class UserController extends Controller {
 
 	/**
 	 * ユーザー作成処理
-	 * @param Request $request
+	 *
+	 * @param Requests\UserPostRequest $request
 	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
 	 */
-	public function store(Request $request)
+	public function store(Requests\UserPostRequest $request)
 	{
 		User::create($request->all());
 
@@ -61,7 +60,6 @@ class UserController extends Controller {
 	 */
 	public function show(User $user)
 	{
-		dd(Request::input('id'));
 		return view('user.show', compact('user'));
 	}
 
