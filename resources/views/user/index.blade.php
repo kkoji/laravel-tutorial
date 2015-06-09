@@ -22,6 +22,10 @@
 				<td>
 					{!! link_to_route('user.show', 'Show', $user, ['class' => 'btn btn-primary']) !!}
 					{!! link_to_route('user.edit', 'Edit', $user, ['class' => 'btn btn-primary']) !!}
+
+					{!! Form::open(['method' => 'DELETE', 'route' => ['user.destroy', $user], 'style' => 'display: inline-block']) !!}
+					{!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
+					{!! Form::close() !!}
 				</td>
 			</tr>
 			@endforeach

@@ -91,14 +91,17 @@ class UserController extends Controller {
 	}
 
 	/**
-	 * Remove the specified resource from storage.
+	 * ユーザー削除処理
 	 *
-	 * @param  int  $id
-	 * @return Response
+	 * @param User $user
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+	 * @throws \Exception
 	 */
-	public function destroy($id)
+	public function destroy(User $user)
 	{
-		//
+		$user->delete();
+
+		return redirect('user');
 	}
 
 }
