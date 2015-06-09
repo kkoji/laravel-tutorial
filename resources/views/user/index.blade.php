@@ -9,6 +9,7 @@
 				<th>ID</th>
 				<th>名前</th>
 				<th>プロフィール</th>
+				<th>メニュー</th>
 			</tr>
 			</thead>
 
@@ -18,6 +19,10 @@
 				<td>{{ $user->id }}</td>
 				<td>{{ $user->name }}</td>
 				<td>{{ $user->profile }}</td>
+				<td>
+					{!! link_to_route('user.show', 'Show', $user, ['class' => 'btn btn-primary']) !!}
+					{!! link_to_route('user.edit', 'Edit', $user, ['class' => 'btn btn-primary']) !!}
+				</td>
 			</tr>
 			@endforeach
 			</tbody>

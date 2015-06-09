@@ -41,32 +41,6 @@ class UserController extends Controller {
 		return view('user.create');
 	}
 
-	/**
-	 * 指定されたユーザーのプロファイルを表示
-	 * @param $id
-	 * @return \Illuminate\View\View
-	 */
-	public function getProfile(Request $request, $id = null)
-	{
-		// タイプヒントによりRequestオブジェクトを取得
-		$name = $request->input('name', 'unknown');
-		// 全てのリクエストパラメータを取得
-		$request->all();
-		if ($request->has('name')) {
-			//echo 'nameが渡されてました';
-		} else {
-			//echo 'nameが渡されていません';
-
-		}
-		// アクションのURLを取得
-		// $url = action('UserController@showProfile');
-		// URL::setRootControllerNamespace('App\Http\Controllers');
-		// $url = action('UserController@showProfile');
-		// $action = Route::currentRouteAction();
-
-
-		return view('user.profile', ['user' => User::findOrFail($id)]);
-	}
 
 	/**
 	 * ユーザー作成処理
@@ -81,14 +55,13 @@ class UserController extends Controller {
 	}
 
 	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
+	 * ユーザー情報閲覧
+	 * @param $id
+	 * @return \Illuminate\View\View
 	 */
 	public function show($id)
 	{
-		//
+		return view('user.show', ['user' => User::find($id)]);
 	}
 
 	/**
