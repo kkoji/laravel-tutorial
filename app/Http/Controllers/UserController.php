@@ -22,7 +22,11 @@ class UserController extends Controller {
 		// $this->middleware('subscribed', ['except' => ['fooAction', 'barAction']]);
 	}
 
-	public function getIndex()
+	/**
+	 * ユーザー一覧表示
+	 * @return \Illuminate\View\View
+	 */
+	public function index()
 	{
 		return view('user.index', ['users' => User::all()]);
 	}
@@ -32,7 +36,7 @@ class UserController extends Controller {
 	 * @param $id
 	 * @return \Illuminate\View\View
 	 */
-	public function getProfile(Request $request, $id = nul)
+	public function getProfile(Request $request, $id = null)
 	{
 		// タイプヒントによりRequestオブジェクトを取得
 		$name = $request->input('name', 'unknown');
@@ -52,16 +56,6 @@ class UserController extends Controller {
 
 
 		return view('user.profile', ['user' => User::findOrFail($id)]);
-	}
-
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
 	}
 
 	/**

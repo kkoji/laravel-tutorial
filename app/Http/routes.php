@@ -73,7 +73,8 @@ Route::get('sample/index', 'SampleController@index');
 Route::get('sample/csrf', 'SampleController@csrf');
 
 // UserControllerの全アクションへのルートを作成
-Route::controller('user', 'UserController');
+//Route::controller('user', 'UserController');
+Route::resource('user', 'UserController');
 
 // Rest Route
 Route::resource('photo', 'PhotoController');
