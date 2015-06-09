@@ -41,7 +41,6 @@ class UserController extends Controller {
 		return view('user.create');
 	}
 
-
 	/**
 	 * ユーザー作成処理
 	 * @param Request $request
@@ -56,34 +55,39 @@ class UserController extends Controller {
 
 	/**
 	 * ユーザー情報閲覧
-	 * @param $id
+	 *
+	 * @param User $user
 	 * @return \Illuminate\View\View
 	 */
-	public function show($id)
+	public function show(User $user)
 	{
-		return view('user.show', ['user' => User::find($id)]);
+		return view('user.show', compact('user'));
 	}
 
 	/**
-	 * Show the form for editing the specified resource.
+	 * ユーザー情報編集フォーム
 	 *
-	 * @param  int  $id
-	 * @return Response
+	 * @param User $user
+	 * @return \Illuminate\View\View
 	 */
-	public function edit($id)
+	public function edit(User $user)
 	{
-		//
+		return view('user.edit', compact('user'));
 	}
 
 	/**
-	 * Update the specified resource in storage.
+	 * ユーザー情報を更新
 	 *
-	 * @param  int  $id
-	 * @return Response
+	 * @param Request $request
+	 * @param User $user
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
 	 */
-	public function update($id)
+	public function update(User $user, Request $request)
 	{
-		//
+		$input = array_except($request->all(), ['_method', '_token']);
+		$user->update($input);
+
+		return redirect('user');
 	}
 
 	/**
