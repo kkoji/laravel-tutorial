@@ -3,7 +3,12 @@
 @section('content')
 	<div class="row">
 		<h1>ユーザー新規追加</h1>
-		{!! Form::model(new App\User, ['route' => 'user.store']) !!}
+		{!! Form::model(new App\User, ['route' => 'user.store', 'files' => true]) !!}
+
+		<div class="form-group">
+			{!! Form::label('photo', 'Photo:', ['class' => 'control-label']) !!}
+			{!! Form::file('photo', null, ['class' => 'form-control']) !!}
+		</div>
 
 		@if($errors->has('name'))<div class="form-group has-error">@endif
 		<div class="form-group">

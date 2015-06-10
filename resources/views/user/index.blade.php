@@ -7,6 +7,7 @@
 			<thead>
 			<tr>
 				<th>ID</th>
+				<th>写真</th>
 				<th>名前</th>
 				<th>プロフィール</th>
 				<th>メニュー</th>
@@ -17,6 +18,7 @@
 			@foreach($users as $user)
 			<tr>
 				<td>{{ $user->id }}</td>
+				<td>{!! Html::image("photo/{$user->photo_name}", $user->name, ['width' => '100px']) !!}</td>
 				<td>{{ $user->name }}</td>
 				<td>{{ $user->profile }}</td>
 				<td>

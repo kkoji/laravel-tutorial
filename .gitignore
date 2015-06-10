@@ -1,5 +1,9 @@
 /vendor
 /node_modules
 .env
+# Image upload dir
+public/photo
 
+# IDE generete file
 .idea
+

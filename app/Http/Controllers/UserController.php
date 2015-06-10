@@ -47,7 +47,14 @@ class UserController extends Controller {
 	 */
 	public function store(Requests\UserPostRequest $request)
 	{
-		User::create($request->all());
+		$photo = $request->file('photo');
+		$file_name = str_random('32').'.'.$photo->getClientOriginalExtension();
+
+		$input = $request->all();
+		$input += ['photo_name' => $file_name];
+		$photo->move('photo', $file_name);
+
+		User::create($input);
 
 		return redirect('user');
 	}
