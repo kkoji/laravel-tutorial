@@ -10,6 +10,14 @@
 				<td>{{ $user->id }}</td>
 			</tr>
 			<tr>
+				<th>写真</th>
+				<td>
+					@if (!empty($user->photo_name))
+						{!! Html::image("photo/{$user->photo_name}", $user->name, ['width' => '100px']) !!}
+					@endif
+				</td>
+			</tr>
+			<tr>
 				<th>名前</th>
 				<td>{{ $user->name }}</td>
 			</tr>

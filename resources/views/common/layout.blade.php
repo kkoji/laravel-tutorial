@@ -13,7 +13,6 @@
 <body>
 
 @include('common.header')
-@yield('header')
 
 <div class="container">
 	@yield('content')
